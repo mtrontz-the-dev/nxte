@@ -1,0 +1,56 @@
+{
+  "root": "packages/nx-create-remix",
+  "sourceRoot": "packages/nx-create-remix/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/nx-create-remix/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/nx-create-remix"],
+      "options": {
+        "jestConfig": "packages/nx-create-remix/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nrwl/node:package",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/nx-create-remix",
+        "tsConfig": "packages/nx-create-remix/tsconfig.lib.json",
+        "packageJson": "packages/nx-create-remix/package.json",
+        "main": "packages/nx-create-remix/src/index.ts",
+        "assets": [
+          "packages/nx-create-remix/*.md",
+          {
+            "input": "./packages/nx-create-remix/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/nx-create-remix/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./packages/nx-create-remix",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./packages/nx-create-remix",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}
