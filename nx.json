@@ -1,7 +1,7 @@
 {
   "npmScope": "nxte",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "cicd"
   },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
