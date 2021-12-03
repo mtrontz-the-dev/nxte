@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "test:build": "NX_BRANCH=testing npx nx run nx-create-remix:build",
+    "build:remix": "npx nx run nx-create-remix:build"
   },
   "private": true,
   "devDependencies": {
@@ -15,6 +17,7 @@
     "@nrwl/jest": "13.2.3",
     "@nrwl/linter": "13.2.3",
     "@nrwl/node": "13.2.3",
+    "@nrwl/nx-cloud": "^12.5.4",
     "@nrwl/nx-plugin": "^13.2.3",
     "@nrwl/tao": "13.2.3",
     "@nrwl/workspace": "13.2.3",
